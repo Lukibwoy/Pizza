@@ -1,0 +1,58 @@
+@mixin burgerBtnn{
+ position: absolute;
+ right: 0;
+height: 3px;
+content: '';
+background-color: $pure-white;
+transition: width .3s;
+border-radius: 20px;
+
+}
+
+@mixin heroImgg($bgImg){
+ background-image: $blue-gradient, url($bgImg);
+ background-size: cover;
+ background-attachment: fixed;
+ background-position: center;
+} 
+
+@mixin line{
+
+ text-align: center;
+ 
+
+     font-size: 3rem;
+   margin: 40px auto;
+   position: relative;
+   max-width: 600px;
+   padding:0 50px;
+ 
+ &::before{
+     content: '';
+     position: absolute;
+     display: block;
+     width: 60px;
+     left: 10%;
+     height: 2px;
+     background: #333;
+     top: 50%;
+     z-index: -2;
+  
+
+ 
+ }
+ &::after{
+     content: '';
+     position: absolute;
+     display: block;
+     width: 60px;
+     right: 10%;
+     height: 2px;
+     background: #333;
+     top: 50%;
+     z-index: -2;
+     
+     
+ }
+
+}

@@ -1,0 +1,499 @@
+@import './colors';
+@import './components.scss';
+@import './mixins.scss';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+font-size: 62.5%;
+scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+}
+
+
+.burger-btn{
+   
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1em;
+        background: none;
+        border: 1px solid transparent;
+        z-index: 1000; 
+        cursor: pointer;
+        
+        
+        
+        &:hover{
+            .burger-btn__bars::after{
+                width: 100%;
+            }
+            .burger-btn__bars::before{
+                width: 100%;
+            }
+        }
+        
+        
+        &:focus{
+            outline: none;
+            border: 1px solid rgba(255, 255, 255, .5);
+            border-radius: 8px;
+        }
+        
+        &__box{
+            position: relative;
+            width: 40px;
+            height: 30px;
+        }
+        
+        &__bars,   
+        &__bars::after,  
+        &__bars::before { 
+        @include burgerBtnn;
+    } 
+    
+    &__bars{
+    width: 100%;
+}
+&__bars::after{
+    width: 60%;
+    top: 13px;
+}
+&__bars::before{
+    width: 30%;
+    top: 26px;
+    transition-delay: .1s;
+}
+    }
+
+
+//HEADER
+
+.nav{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    width: 100%;
+    height: 100vh;
+    background-image: $blue-gradient-solid;
+    z-index: 100;
+    transform: translateX(100%);
+    transition: .5s cubic-bezier(0.65, 0.5, 0.36, 1);
+
+    &--active{
+        transform: translateX(0);
+    }
+&-item{
+position: relative;
+display: block;
+text-decoration: none;
+color: $pure-white;
+text-align: center;
+margin: 0.5em 0;
+padding: .5em 2em;
+
+
+&::before{
+    position: absolute;
+    background-color: $pure-white;
+    width: 3px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    transform: scaleY(0);
+    transition: transform .3s;
+
+}
+
+&:hover::before {
+    transform: scaleY(1);
+}
+}
+
+}
+
+
+    .header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  flex-direction: column;
+  overflow: hidden;
+    padding: 2em;
+    height: 75vh;
+    text-align: center;
+    color: $pure-white;
+    @include heroImgg('../images/pizza_mini.jpg');
+
+    &__heading{
+
+  h1{
+
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 5rem;
+    font-family: cursive;
+}
+
+
+    }
+
+
+    &-btn{
+        background-color: #fff;
+        padding: 0.8rem 1.6rem;
+        border-radius: 7px;
+        text-decoration: none;
+        color: #000;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+   &::before{
+       background-color: $light-white;
+   }
+
+       }
+
+}
+
+main{
+
+    margin-top: 100px;
+    
+    .aboutus{
+        overflow: hidden;
+        padding: 5px;
+        
+        &__title{
+            @include line;
+        }
+        
+        &__info{
+            
+            p{
+                text-align: justify;
+                padding:15px;
+            }
+    }
+
+    &__row{
+        display: flex;
+       justify-content:space-between;
+padding: 0 20px 15px 15px;
+       align-items: center;
+       margin-top: 100px;
+       margin-bottom: 100px;
+
+    
+       
+       i{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      font-size: 60px;
+      
+      
+    }
+    
+          p{
+              text-align: center;
+              font-weight: bold;
+          }
+        
+ 
+      
+       }
+   
+    }
+
+    .main-info{
+
+        width: 100%;
+        height:65vh;
+        background-image: url(/images/pizza_mini.jpg);
+        background-size: cover;
+        @include heroImgg('../images/pizza_mini.jpg');
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow: hidden;
+        &__title{
+h2{
+    font-size: 4rem;
+    color: $pure-white;
+    font-family: cursive;
+    
+}
+
+}
+
+
+&__firstLine{
+    
+   margin-top: 50px;
+            width: 300px;
+            height: 2px;
+            background:  $pure-white;
+            top: 30%;
+       
+            
+            
+        }
+        p{
+    
+      top: 80%;
+           
+            color: $pure-white;
+            text-align: center;
+        }
+        &__secondLine{
+      
+            width: 300px;
+            height: 2px;
+            background:  $pure-white;
+            top: 80%;
+            
+            
+            
+        }
+        }
+
+        .menu{
+            text-align: center;
+            height: 50vh;
+            width: 100%;
+            margin-top: 750px;
+            
+    
+            overflow: hidden;
+            &__title{
+                
+                
+                    @include line;
+     
+
+                    color: #333;
+               
+                .table{
+                  
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+        
+    
+                   border-collapse: collapse;
+                min-width: 400px;    
+            }
+        }
+        .pizza{
+            padding-right: 50px;
+        } 
+            
+      }  
+
+
+    //REVIEWS   
+.reviews{
+    margin-top: 100px;
+    overflow: hidden;
+    width: 100%;
+height: 60vh;
+    
+.section-heading{
+    text-align: center;
+    @include line;
+
+}
+
+.review{
+    
+    overflow: hidden;
+    &__box{
+        position: relative;
+   max-width: 340px;
+right: 25px;
+        margin: 2em;
+      padding: 2em;
+        box-shadow: 3px 3px 10px rgba(46, 46, 46, 0.18);
+        border-radius: 8px;
+    }
+
+    &__box-img{
+        position: absolute;
+        top: 8%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        background-size: cover;
+     img{
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50px;
+     }
+    }
+
+
+        }
+
+
+}
+
+.contact{
+    margin-top: 100px;
+    overflow: hidden;
+
+    .section-heading{
+        @include line;
+    }
+    &__boxes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     justify-content: space-between;
+
+        &__box{
+            display: flex;
+    flex-direction: column;
+        margin: 50px;
+        width: 300px;
+        height: 200px;
+        padding: 50px;
+        border: 1px solid #333;
+        border-top: none;
+        position: relative;
+        
+        
+        &::before,
+        &::after {
+					position: absolute;
+					content: '';
+					top: 0;
+					width: 100px;
+					border-bottom: 1px solid #333;
+				}
+
+				&::before {
+					left: 0;
+				}
+				&::after {
+					right: 0;
+				}
+                
+                        &-fas{
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            right: 50%;
+                            transform: translate(-50%,  -50%);
+                
+                        }
+                    }
+                    
+                }
+                    
+            }
+        }
+
+      
+
+
+
+
+
+
+
+
+
+
+
+// MEDIA
+@media(min-width:568px){
+    .aboutus{
+        &__row{
+
+        flex-direction: row;
+
+    
+    }
+    
+}
+// .contact{
+//     &__boxes{
+    
+//     flex-direction: row;
+    
+    
+//     }
+// }
+}
+
+
+      
+@media(min-width:768px){
+    .header{
+        &__heading{
+            h1{
+                font-size: 6.6rem;
+            }
+
+   
+      p{
+     font-size: 5rem;
+     padding: 200px;
+      
+        }
+        }
+    }
+
+    .white-block{
+        height: 50px;
+        width: 45%;
+    }
+    
+    &__row{
+        
+            justify-content: space-between;
+     
+    }
+
+    .main-info{
+        
+        &__firstLine{
+            width: 400px;
+          
+        }
+        p{
+            margin: 0 400px;
+        }
+    
+
+    &__secondLine{
+        width: 400px;
+    }
+}
+
+
+}
+
+
+@media(min-width:992px){
+    .header{
+        background-image: $blue-gradient, url(../images/pizza_small.jpg);
+    }
+}
